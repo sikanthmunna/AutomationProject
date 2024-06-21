@@ -1,4 +1,5 @@
-﻿using NewJobProject.Source.Pages;
+﻿using FluentAssertions;
+using NewJobProject.Source.Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using WebDriverManager;
@@ -12,6 +13,7 @@ namespace NewJobProject.Test
     {
 
         private IWebDriver _driver;
+       
 
         [SetUp]
         public void InitiSetUp()
@@ -35,13 +37,32 @@ namespace NewJobProject.Test
         }
 
         [Test]
-        public void SearchForProduct()
+        public void ClickAllMenu()
         {
-
-            
+            Homepage _homepage = new Homepage(_driver);
+            _homepage.ClikcAllMenuButton();
 
         }
 
+        [Test]
+        public void MenuListBoxDisplayed()
+        {
+            Homepage _homepage = new Homepage(_driver);
+            _homepage.ClikcAllMenuButton();
+            Thread.Sleep(1000);
+            _homepage.MenuListDisplayed.Should().BeTrue();
+        }
+
+
+
+        [Test]
+        public void SignInTitlePage()
+        {
+            Homepage _homepage = new Homepage(_driver);
+            _homepage.ClikcSignInButton();
+            Thread.Sleep(1000);
+            _homepage.SignInText.Should().BeEquivalentTo("Sign in");
+        }
 
         [TearDown]
         public void TearDown()
