@@ -17,6 +17,8 @@ namespace NewJobProject.Source.Pages
         private IWebElement MenuList => _driver.FindElement(By.Id("hmenu-content"));
         private IWebElement SignInButton => _driver.FindElement(By.Id("nav-link-accountList-nav-line-1"));
         private IWebElement SignInTitle => _driver.FindElement(By.XPath("//h1[normalize-space()='Sign in']"));
+        private IWebElement EmailTextBox => _driver.FindElement(By.Id("ap_email"));
+
         
 
         
@@ -48,6 +50,7 @@ namespace NewJobProject.Source.Pages
         }
 
         public bool MenuListDisplayed => MenuList.Displayed;
+        public bool EmailTextBoxDisplayed => EmailTextBox.Displayed;
 
         
 

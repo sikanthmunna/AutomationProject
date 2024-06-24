@@ -61,7 +61,7 @@ namespace NewJobProject.Test
             Homepage _homepage = new Homepage(_driver);
             _homepage.ClikcSignInButton();
             Thread.Sleep(1000);
-            _homepage.SignInText.Should().BeEquivalentTo("Sign in");
+            _homepage.EmailTextBoxDisplayed.Should().BeTrue();
         }
 
         [TearDown]
