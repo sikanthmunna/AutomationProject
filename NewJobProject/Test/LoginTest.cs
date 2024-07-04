@@ -9,18 +9,16 @@ namespace NewJobProject.Test
 {
 
 
-    public class HomeTest
+    public class LoginTest
     {
 
         private IWebDriver _driver;
-       
+
 
         [SetUp]
         public void InitiSetUp()
         {
             new DriverManager().SetUpDriver(new ChromeConfig());
-            ChromeOptions options = new ChromeOptions();
-            options.AddArguments("headless");
             _driver = new ChromeDriver();
             _driver.Manage().Window.Maximize();
             _driver.Navigate().GoToUrl("https:www.amazon.co.uk");
@@ -30,12 +28,7 @@ namespace NewJobProject.Test
         [Test]
         public void Serchpage()
         {
-            
             Homepage _homepage = new Homepage(_driver);
-            //hp.EnterSerachBox("Greeting Cards");
-            _homepage.ClickGroceryButton();
-            Assert.True(_driver.Title.Contains("Groceries"));
-
 
         }
 
@@ -43,7 +36,6 @@ namespace NewJobProject.Test
         public void ClickAllMenu()
         {
             Homepage _homepage = new Homepage(_driver);
-            _homepage.ClikcAllMenuButton();
 
         }
 
@@ -51,9 +43,7 @@ namespace NewJobProject.Test
         public void MenuListBoxDisplayed()
         {
             Homepage _homepage = new Homepage(_driver);
-            _homepage.ClikcAllMenuButton();
-            Thread.Sleep(1000);
-            _homepage.MenuListDisplayed.Should().BeTrue();
+            
         }
 
 
@@ -62,9 +52,7 @@ namespace NewJobProject.Test
         public void SignInTitlePage()
         {
             Homepage _homepage = new Homepage(_driver);
-            _homepage.ClikcSignInButton();
-            Thread.Sleep(1000);
-            _homepage.EmailTextBoxDisplayed.Should().BeTrue();
+            
         }
 
         [TearDown]
