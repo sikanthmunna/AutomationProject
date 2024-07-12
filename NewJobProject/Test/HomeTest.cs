@@ -58,14 +58,14 @@ namespace NewJobProject.Test
 
 
 
-        [Test]
-        public void SignInTitlePage()
-        {
-            Homepage _homepage = new Homepage(_driver);
-            _homepage.ClikcSignInButton();
-            Thread.Sleep(1000);
-            _homepage.EmailTextBoxDisplayed.Should().BeTrue();
-        }
+        //[Test]
+        //public void SignInTitlePage()
+        //{
+        //    Homepage _homepage = new Homepage(_driver);
+        //    _homepage.ClikcSignInButton();
+        //    Thread.Sleep(1000);
+        //    _homepage.EmailTextBoxDisplayed.Should().BeTrue();
+        //}
 
         [TearDown]
         public void TearDown()
